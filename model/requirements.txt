@@ -1,0 +1,10 @@
+jupyter
+numpy
+pandas
+matplotlib
+tensorflow
+tensorflow-text
+PyInquirer
+tensorflowjs
+datasets
+transformers
