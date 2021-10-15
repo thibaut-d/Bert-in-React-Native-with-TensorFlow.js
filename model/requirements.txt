@@ -8,3 +8,5 @@ PyInquirer
 tensorflowjs
 datasets
 transformers
+tf-models-official
+pydot

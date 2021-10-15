@@ -1,3 +1,35 @@
+# Don't save the model exports
+model/exports
+
+# Tensorflow
+.ipynb_checkpoints
+node_modules
+/.bazelrc.user
+/.tf_configure.bazelrc
+/bazel-*
+/bazel_pip
+/tools/python_bin_path.sh
+/tensorflow/tools/git/gen
+/pip_test
+/_python_build
+*.pyc
+__pycache__
+*.swp
+.vscode/
+cmake_build/
+tensorflow/contrib/cmake/_build/
+.idea/**
+/build/
+[Bb]uild/
+/tensorflow/core/util/version_info.cc
+/tensorflow/python/framework/fast_tensor_util.cpp
+/tensorflow/lite/gen/**
+/tensorflow/lite/tools/make/downloads/**
+/tensorflow/lite/tools/make/gen/**
+/api_init_files_list.txt
+/estimator_api_init_files_list.txt
+*.whl
+
 # Logs
 logs
 *.log
@@ -102,3 +134,18 @@ dist
 
 # TernJS port file
 .tern-port
+
+# React Native
+node_modules/
+.expo/
+npm-debug.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.orig.*
+web-build/
+
+# macOS
+.DS_Store

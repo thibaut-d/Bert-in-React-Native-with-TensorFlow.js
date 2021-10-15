@@ -56,6 +56,39 @@ def load_sst_dataset():
 
   return text_train, Y1, Y2, text_test, Y1_test, Y2_test
 
+def load_sst():
+  """
+  Load the sst dataset as a tensorflow dataset
+  """
+  # Data
+  ds = load_dataset("sst", "default")
+  x_train = ds["train"]["sentence"]
+  y_train = ds["train"]["label"]
+  x_val   = ds["validation"]["sentence"]
+  y_val   = ds["validation"]["label"]
+  x_test  = ds["test"]["sentence"]
+  y_test  = ds["test"]["label"]
+
+  def return_ds(x,y,subset):
+    AUTOTUNE = tf.data.AUTOTUNE
+    batch_size = 32
+    seed = 42
+    return tf.data.Dataset.from_tensor_slices({
+      "text": x,
+      "classifier":[1 if y[i] > 0.5 else 0 for i in range(len(y))],
+      "regression":y
+      },
+      batch_size=batch_size,
+      validation_split=0.2,
+      subset=subset,
+      seed=seed
+      )
+
+  ds_train = return_ds(x_train,y_train,'training')
+  ds_test  = return_ds(x_val + x_test,y_val+y_test,'training')
+
+  return ds_train, ds_test
+
 
 def save_ts_model(model,epochs,model_name):
   """
@@ -64,6 +97,6 @@ def save_ts_model(model,epochs,model_name):
   # Date format for alphabetic sorting
   now = datetime.now().strftime("%Y-%m-%d-%H-%M-%S")
   # Name the directory that will be used to save the model
-  versiondir = f"./{now}-hf-ts-{epochs}epochs-{model_name}/"
+  versiondir = f"./exports/{now}-hf-ts-{epochs}epochs-{model_name.replace('/', '_')}/"
   # Save the model into the directory
   model.save(versiondir)

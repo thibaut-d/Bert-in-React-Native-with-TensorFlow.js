@@ -1,0 +1,20 @@
+{
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "cSpell.words": [
+      "Appbar",
+      "binarize",
+      "conda",
+      "keras",
+      "pyplot",
+      "snackbars",
+      "tensorflowjs",
+      "tfhub",
+      "tfjs"
+    ]
+  }
+}
