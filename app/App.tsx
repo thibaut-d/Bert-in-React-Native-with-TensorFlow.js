@@ -1,11 +1,18 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaView, StyleSheet, Text, TextInput, View } from 'react-native';
+import tf from '@tensorflow/tfjs';
+import '@tensorflow/tfjs-react-native';
 
 export default function App() {
+  const [tsReady,setTsReady] = useState<boolean>(false)
   const [bert, setBert] = useState<any>()
   const [text, setText] = useState<string>()
   const [result, setResult] = useState<any>()
+
+  useEffect(() => {
+    //
+  })
 
   return (
     <SafeAreaView style={styles.container}>
