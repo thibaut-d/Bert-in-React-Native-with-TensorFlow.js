@@ -31,7 +31,10 @@ export default function App() {
         await tf.ready()
         setBackendInfo(JSON.stringify(tf.getBackend()))
         console.log("TensorFlow is ready with backend :",backendInfo)
+        // Option to load a keras layers model
         const model = await tf.loadLayersModel(bundleResourceIO(modelJson, [m1,m2,m3,m4,m5]))
+        // Option to load directly a graph model
+        // const model = await tf.loadGraphModel(bundleResourceIO(modelJson, [m1,m2,m3,m4,m5]))
         setBert(model)
         console.log("Model is ready: ", model)
       }

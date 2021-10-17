@@ -1,7 +1,12 @@
+# Base
+
 jupyter
 numpy
 pandas
 matplotlib
+
+# TensorFlow related PackageList
+
 tensorflow
 tensorflow-text
 PyInquirer
